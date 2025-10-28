@@ -1,1 +1,0 @@
-console.log("bem vindo ao meu projeto pessoal")

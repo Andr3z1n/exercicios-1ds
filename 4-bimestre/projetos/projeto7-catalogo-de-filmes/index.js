@@ -1,56 +1,56 @@
 // CRIE UMA LÓGICA ABAIXO
-//const prompt = require("prompt-sync")()
+const prompt = require("prompt-sync")()
 
-let filme1 = {titulo: "coisa", genero: "kkk", ano: 2009, avaliacao: 10}
-let filme2 = {titulo: "coisa", genero: "kkk", ano: 2009, avaliacao: 10}
-let filme3 = {titulo: "coisa", genero: "kkk", ano: 2009, avaliacao: 10}
-let filme4 = {titulo: "coisa", genero: "kkk", ano: 2009, avaliacao: 10}
-let filme5 = {titulo: "coisa", genero: "kkk", ano: 2009, avaliacao: 10}
-let filme6 = {titulo: "coisa", genero: "kkk", ano: 2009, avaliacao: 10}
-let filme7 = {titulo: "coisa", genero: "kkk", ano: 2009, avaliacao: 10}
-let filme8 = {titulo: "coisa", genero: "kkk", ano: 2009, avaliacao: 10}
-let filme9 = {titulo: "coisa", genero: "kkk", ano: 2009, avaliacao: 10}
-let filme10 = {titulo: "coisa", genero: "kkk", ano: 2009, avaliacao: 10}
+let filme1 = { titulo: "O Poderoso Chefinho", genero: "Animação", ano: 2028, avaliacao: 9 }
+let filme2 = { titulo: "Homens-Aranha: Longe De Casa", genero: "Ação", ano: 2019, avaliacao: 9 }
+let filme3 = { titulo: "Homem-Aranha", genero: "Ação / Romance", ano: 2002, avaliacao: 10 }
+let filme4 = { titulo: "Os Vingadores", genero: "Açao", ano: 2012, avaliacao: 9 }
+let filme5 = { titulo: "Os Vingadores: Guerra Infinita", genero: "Ação", ano: 2003, avaliacao: 10 }
+let filme6 = { titulo: "Os Sete Pecados Capitais", genero: "Anime", ano: 2014, avaliacao: 10 }
+let filme7 = { titulo: "Boruto: Naruto the Movie", genero: "Ação / Anime", ano: 2015, avaliacao: 9 }
+let filme8 = { titulo: "Vingadores: Guerra Infinita", genero: "Ação", ano: 2019, avaliacao: 8 }
+let filme9 = { titulo: "Dragon Ball Super: Broly", genero: "Ação", ano: 1993, avaliacao: 9 }
+let filme10 = { titulo: "Um Espião e Meio", genero: "Comédia / Ação", ano: 2016, avaliacao: 10 }
 
-const coisa = {filme1, filme2, filme3, filme4, filme5, filme6, filme7, filme8, filme9, filme10}
 
+
+const filme = {
+  1: filme1,
+  2: filme2,
+  3: filme3,
+  4: filme4,
+  5: filme5,
+  6: filme6,
+  7: filme7,
+  8: filme8,
+  9: filme9,
+  10: filme10,
+}
 // for(let i = 1; i <= 10; i++){
-//     const filme = coisa[`filme${i}`]
-
-
-//     filme.titulo = prompt(`qual o titulo do filme ${i}? `)
-//     filme.genero = prompt(`qual o genero do filme ${i}? `)
-//     filme.ano = parseInt(prompt(`qual o ano de lançamento do filme ${i}? `))
-//     filme.avaliacao = parseFloat(prompt(`qual a avaliação do filme ${i}? `))
+//     filme[i].titulo = prompt(`Qual o nome do filme${i}?`)
+//     filme[i].genero = prompt(`Qual o gênero do filme${i}?`)
+//     filme[i].ano = parseInt(prompt(`Qual o ano de lançamento do filme${i}?`))
+//     filme[i].avaliacao = parseFloat(prompt(`Qual a avaliação do filme${i}? 0 a 10`))
 // }
-const avaliacoes = [filme1.avaliacao, filme2.avaliacao, filme3.avaliacao, filme4.avaliacao, filme5.avaliacao, filme6.avaliacao, filme7.avaliacao, filme8.avaliacao, filme9.avaliacao, filme10.avaliacao]
-let maior = avaliacoes[0]
-for(let i = 1; i < avaliacoes.length; i++){
-    if(avaliacoes[i] > maior){
-        maior = avaliacoes[i]
+console.log("=== Catálogo de Filmes ===")
+for(let i = 1; i <= 10; i++){
+   
+   console.log(`${i}. ${filme[i].titulo} - ${filme[i].genero}`)
+}
+let soma = 0
+let melhoravaliacao = 0 
+let melhorfilme = ""
+for(let i = 1; i <= 10; i++){
+    soma = soma + filme[i].avaliacao
+
+    if(filme[i].avaliacao > melhoravaliacao){
+        melhoravaliacao = filme[i].avaliacao
+        melhorfilme = filme[i].titulo
     }
 }
-let filmemaior = avaliacoes.indexOf(maior) + 1
-let soma = avaliacoes.reduce((acumulador, valorAtual) => { return valorAtual + acumulador}, 0) 
-let media = soma / avaliacoes.length
-console.log(`
-    === Catalogo de filmes ===
-    1. ${filme1.titulo} - ${filme1.genero}
-    2. ${filme2.titulo} - ${filme2.genero}
-    3. ${filme3.titulo} - ${filme3.genero}
-    4. ${filme4.titulo} - ${filme4.genero}
-    5. ${filme5.titulo} - ${filme5.genero}
-    6. ${filme6.titulo} - ${filme6.genero}
-    7. ${filme7.titulo} - ${filme7.genero}
-    8. ${filme8.titulo} - ${filme8.genero}
-    9. ${filme9.titulo} - ${filme9.genero}
-    10. ${filme10.titulo} - ${filme10.genero}
-
-    Filme mais bem avaliado:
-    ${coisa[`filme${filmemaior}`].titulo} (${maior})
-
-    media geral das avaliaçoes:${media}
-    `)
-
+let media = soma / 10
+console.log(`Filme mais bem avaliado:`)
+console.log(`${melhorfilme} (${melhoravaliacao}/10)`)
+console.log(`A média das avaliações é ${media.toFixed(2)}`)
 // === NÃO MODIFIQUE OU ADICIONE NADA ABAIXO ============
 module.exports = { filme1, filme2, filme3, filme4, filme5, filme6, filme7, filme8, filme9, filme10 }
